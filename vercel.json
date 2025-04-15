@@ -9,12 +9,16 @@
     {
       "src": "examples/**/*",
       "use": "@vercel/static"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/klaviyo-webflow.min.js",
-      "dest": "/dist/klaviyo-webflow.min.js",
+      "dest": "/public/klaviyo-webflow.min.js",
       "headers": {
         "Cache-Control": "public, max-age=86400, stale-while-revalidate=604800",
         "Access-Control-Allow-Origin": "*",
@@ -45,6 +49,14 @@
     {
       "src": "/examples/(.*)",
       "dest": "/examples/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=3600",
+        "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "/public/(.*)",
+      "dest": "/public/$1",
       "headers": {
         "Cache-Control": "public, max-age=3600",
         "Access-Control-Allow-Origin": "*"
