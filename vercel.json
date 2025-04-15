@@ -13,6 +13,10 @@
     {
       "src": "public/**/*",
       "use": "@vercel/static"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -60,6 +64,34 @@
       "headers": {
         "Cache-Control": "public, max-age=3600",
         "Access-Control-Allow-Origin": "*"
+      }
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/docs",
+      "dest": "/docs.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/documentation",
+      "dest": "/documentation.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
+      "src": "/playground",
+      "dest": "/playground.html",
+      "headers": {
+        "Cache-Control": "public, max-age=3600"
       }
     },
     {
