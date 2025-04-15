@@ -5,6 +5,10 @@
     {
       "src": "dist/**/*",
       "use": "@vercel/static"
+    },
+    {
+      "src": "examples/**/*",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
