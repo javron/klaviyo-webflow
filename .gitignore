@@ -1,8 +1,21 @@
-# Node.js dependencies
-node_modules/
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
 
-# Build output
-dist/
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.pnpm-debug.log
+
+# Next.js
+.next/
+out/
+build/
+.vercel/
 
 # Environment variables
 .env
@@ -11,27 +24,36 @@ dist/
 .env.test.local
 .env.production.local
 
-# Logs
-logs
-*.log
+# Debug files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Editor directories and files
-.idea
-.vscode
-*.swp
-*.swo
+# IDE and editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Build and temporary files
+dist/
+tmp/
+temp/
+_temp/
 
-# Test coverage
-coverage/ 
+# Logs
+logs
+*.log
+
+# Old versions and backups
+*.old
+*.bak
+*~
+*.backup
+backups/
+
+# Original unorganized files that are now organized
+/klaviyo-webflow-nextjs/ 

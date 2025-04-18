@@ -1,3 +1,62 @@
+# Klaviyo to Webflow Integration
+
+This repository contains tools for integrating Klaviyo with Webflow forms.
+
+## Repository Structure
+
+This project is organized into three main components:
+
+### 1. Script Assets (`/script-assets`)
+
+The core JavaScript integration script that connects Webflow forms to Klaviyo:
+
+- `webflow-to-klaviyo-script.js` - The main script
+- `build.js` - Build script for generating the production version
+- `config.js` - Configuration for the build process
+- `dist/` - Contains the built distribution files
+
+### 2. Website (`/website`)
+
+Static HTML website with documentation and examples:
+
+- `index.html` - Main landing page
+- `documentation.html` - Integration documentation
+- `playground.html` - Testing playground
+- `examples/` - Example implementations
+- `public/` - Static assets
+
+### 3. Next.js Application (`/nextjs-app`)
+
+A modern React application built with Next.js that provides a better user experience for documentation, playground testing, and examples:
+
+- React-based components
+- Improved UI with dark mode
+- Interactive examples
+- API routes for script delivery with versioning
+
+## Getting Started
+
+### Using the Script
+
+1. Include the script in your Webflow site
+2. Configure with your Klaviyo API key
+3. Add data attributes to your forms
+
+See the [documentation](/website/documentation.html) for detailed instructions.
+
+### Developing the Next.js App
+
+```bash
+cd nextjs-app
+npm install
+npm run dev
+```
+
+## Repository Links
+
+- [Klaviyo-Webflow Integration Script](https://github.com/javron/klaviyo-webflow.git)
+- [Next.js Documentation Site](https://github.com/javron/klaviyo-webflow-nextjs.git)
+
 # Klaviyo-Webflow Integration
 
 A powerful, flexible, and modular integration between Webflow forms and Klaviyo, with versioning support and robust error handling.
