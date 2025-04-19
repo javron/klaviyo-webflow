@@ -27,30 +27,106 @@ Static HTML website with documentation and examples:
 
 ### 3. Next.js Application (`/nextjs-app`)
 
-A modern React application built with Next.js that provides a better user experience for documentation, playground testing, and examples:
+A modern React application built with Next.js that provides a better user experience for documentation, playground testing, and examples, plus script hosting with versioning:
 
 - React-based components
 - Improved UI with dark mode
 - Interactive examples
 - API routes for script delivery with versioning
+- Centralized version management
 
-## Getting Started
+## Next.js App Architecture
 
-### Using the Script
+The Next.js application uses a robust architecture for script distribution:
 
-1. Include the script in your Webflow site
-2. Configure with your Klaviyo API key
-3. Add data attributes to your forms
+### Centralized Version Management
 
-See the [documentation](/website/documentation.html) for detailed instructions.
+All version information is managed in a single configuration file:
 
-### Developing the Next.js App
+- `src/config/versions.ts` - Defines all available versions with metadata
+
+### API Routes
+
+- `/api/script` - Serves the latest script version
+- `/api/script/[version]` - Serves specific script versions
+- `/api/version` - Provides version metadata for clients
+
+### Script Storage
+
+Scripts are stored in a versioned directory structure:
+
+- `public/scripts/versions/` - Contains specific script versions
+- `public/scripts/klaviyo-webflow.min.js` - Latest version reference
+
+### Release Management
+
+We have a streamlined release process:
+
+- `npm run release:prepare` - Interactive CLI tool to prepare a new release
+- Automatically updates version information
+- Guides through script file preparation
+
+## Using the Hosted Script
+
+### 1. Add the script to your Webflow site
+
+```html
+<script src="https://klaviyo-webflow-nextjs.vercel.app/api/script" defer></script>
+```
+
+For a specific version:
+
+```html
+<script src="https://klaviyo-webflow-nextjs.vercel.app/api/script/1.2.0" defer></script>
+```
+
+### 2. Initialize with your Klaviyo account
+
+```html
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    window.KlaviyoWebflow && window.KlaviyoWebflow.init({
+      apiKey: 'YOUR_KLAVIYO_PUBLIC_API_KEY',
+      defaultListId: 'YOUR_DEFAULT_LIST_ID',
+      debug: false
+    });
+  });
+</script>
+```
+
+Replace `YOUR_KLAVIYO_PUBLIC_API_KEY` with your Klaviyo public API key.
+
+### 3. Configure your Webflow forms
+
+Add the `data-klaviyo-form` attribute to any form you want to connect to Klaviyo:
+
+```html
+<form data-klaviyo-form>
+  <!-- Form fields -->
+</form>
+```
+
+## Developing the Next.js App
 
 ```bash
 cd nextjs-app
 npm install
 npm run dev
 ```
+
+## Version Management
+
+To create a new version:
+
+```bash
+npm run release:prepare
+```
+
+This script will guide you through:
+1. Choosing a version number
+2. Adding change notes
+3. Updating configuration
+4. Copying script files to the proper locations
 
 ## Repository Links
 
